@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mina House Sanremo - Guest Guide</title>
+  <style>
+    :root {
+      --bg: #eef0f4;
+      --card: #f7f7f8;
+      --text: #18213c;
+      --muted: #6b7890;
+      --border: #273454;
+      --primary: #0f1b3d;
+      --primary-hover: #162754;
+      --shadow: 0 8px 24px rgba(15, 27, 61, 0.08);
+      --radius-xl: 26px;
+      --radius-lg: 20px;
+      --radius-md: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 22px;
+    }
+
+    .hero {
+      background: var(--card);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin-bottom: 22px;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-content {
+      padding: 28px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .space-top {
+      margin-top: 18px;
+    }
+
+    .button-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .lang-grid {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      margin-top: 26px;
+    }
+
+    .lang-btn,
+    .action-btn,
+    .doc-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 62px;
+      padding: 14px 18px;
+      border-radius: 22px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s ease;
+      cursor: pointer;
+    }
+
+    .lang-btn {
+      background: transparent;
+      color: var(--text);
+      border: 2px solid var(--border);
+    }
+
+    .lang-btn:hover,
+    .lang-btn.active {
+      background: #e9edf5;
+    }
+
+    .primary-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 22px;
+    }
+
+    .action-btn {
+      background: var(--primary);
+      color: #fff;
+      border: 2px solid var(--border);
+    }
+
+    .action-btn:hover {
+      background: var(--primary-hover);
+    }
+
+    .docs-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-top: 14px;
+    }
+
+    .doc-btn {
+      background: transparent;
+      color: var(--text);
+      border: 2px solid var(--border);
+    }
+
+    .doc-btn:hover {
+      background: #eef2f8;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: 28px;
+      margin-bottom: 22px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 34px;
+    }
+
+    .info-stack {
+      display: grid;
+      gap: 24px;
+    }
+
+    .info-item .label {
+      display: block;
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .info-item .value {
+      font-size: 17px;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .info-item .note {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 28px;
+      letter-spacing: -0.02em;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+      padding: 8px 0 24px;
+    }
+
+    @media (max-width: 900px) {
+      .docs-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .wrap {
+        padding: 14px;
+      }
+
+      .hero img {
+        height: 220px;
+      }
+
+      .hero-content,
+      .card {
+        padding: 20px;
+      }
+
+      .primary-grid,
+      .docs-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .lang-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .lang-btn {
+        min-height: 48px;
+        padding: 10px 6px;
+        font-size: 12px;
+        border-radius: 16px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <noscript>
+    <div style="max-width:1100px;margin:22px auto 0;padding:16px 22px;border-radius:20px;background:#f7f7f8;color:#18213c;box-shadow:0 8px 24px rgba(15, 27, 61, 0.08);font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+      Questa guest guide richiede JavaScript per mostrare correttamente i contenuti.
+    </div>
+  </noscript>
+
+  <div class="wrap">
+    <section class="hero">
+      <img id="cover-image" src="" alt="">
+      <div class="hero-content">
+        <h1 id="apartment-name"></h1>
+        <p class="subtitle" id="subtitle-1"></p>
+        <p class="subtitle space-top" id="subtitle-2"></p>
+
+        <div class="button-grid lang-grid">
+          <button type="button" class="lang-btn" data-lang="it">Italiano</button>
+          <button type="button" class="lang-btn" data-lang="en">English</button>
+          <button type="button" class="lang-btn" data-lang="de">Deutsch</button>
+          <button type="button" class="lang-btn" data-lang="fr">Français</button>
+          <button type="button" class="lang-btn" data-lang="es">Español</button>
+        </div>
+
+        <div class="button-grid primary-grid">
+          <a class="action-btn" id="map-btn" href="#" target="_blank" rel="noopener noreferrer"></a>
+          <a class="action-btn" id="whatsapp-btn" href="#" target="_blank" rel="noopener noreferrer"></a>
+        </div>
+
+        <div class="button-grid docs-grid" id="docs-grid">
+          <a class="doc-btn" id="rules-btn" href="#" target="_blank" rel="noopener noreferrer"></a>
+          <a class="doc-btn" id="arrival-btn" href="#" target="_blank" rel="noopener noreferrer"></a>
+          <a class="doc-btn hidden" id="pet-btn" href="#" target="_blank" rel="noopener noreferrer"></a>
+          <a class="doc-btn hidden" id="extra-btn" href="#" target="_blank" rel="noopener noreferrer"></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="info-card">
+      <div class="info-grid">
+        <div class="info-stack">
+          <div class="info-item" id="address-item">
+            <span class="label" id="label-address"></span>
+            <div class="value" id="address-value"></div>
+          </div>
+
+          <div class="info-item" id="checkin-item">
+            <span class="label" id="label-checkin"></span>
+            <div class="value" id="checkin-value"></div>
+          </div>
+
+          <div class="info-item" id="checkout-item">
+            <span class="label" id="label-checkout"></span>
+            <div class="value" id="checkout-value"></div>
+          </div>
+        </div>
+
+        <div class="info-stack">
+          <div class="info-item" id="wifi-item">
+            <span class="label" id="label-wifi"></span>
+            <div class="value" id="wifi-name"></div>
+            <div class="note" id="wifi-password"></div>
+          </div>
+
+          <div class="info-item" id="contact-item">
+            <span class="label" id="label-contact"></span>
+            <div class="value" id="contact-value"></div>
+            <div class="note" id="contact-note"></div>
+          </div>
+
+          <div class="info-item" id="parking-item">
+            <span class="label" id="label-parking"></span>
+            <div class="value" id="parking-short"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="access-card">
+      <h2 id="access-title"></h2>
+      <p id="access-text"></p>
+      <p class="muted" id="access-note"></p>
+    </section>
+
+    <section class="card" id="rules-card">
+      <h2 id="rules-title"></h2>
+      <ul id="rules-list"></ul>
+    </section>
+
+    <section class="card" id="waste-card">
+      <h2 id="waste-title"></h2>
+      <p id="waste-text"></p>
+      <p class="muted" id="waste-note"></p>
+    </section>
+
+    <section class="card" id="checkout-card">
+      <h2 id="checkout-title"></h2>
+      <ul id="checkout-list"></ul>
+    </section>
+
+    <section class="card hidden" id="suggestions-card">
+      <h2 id="suggestions-title"></h2>
+
+      <div id="restaurants-block">
+        <h3 id="restaurants-title"></h3>
+        <ul id="restaurants-list"></ul>
+      </div>
+
+      <div id="attractions-block">
+        <h3 id="attractions-title" style="margin-top:20px;"></h3>
+        <ul id="attractions-list"></ul>
+      </div>
+    </section>
+
+    <section class="card" id="map-card">
+      <h2 id="map-title"></h2>
+      <p id="map-text"></p>
+      <p id="coords-row"><strong id="coords-label"></strong> <span id="coords-value"></span></p>
+    </section>
+
+    <div class="footer" id="footer-text"></div>
+  </div>
+
+  <script>
+    const PROPERTY = {
+      apartmentName: "Mina House Sanremo",
+      coverImage: "cover.jpg",
+      mapsUrl: "https://www.google.com/maps/search/?api=1&query=Corso+Giuseppe+Mazzini+413+Sanremo",
+      coordinates: "",
+
+      whatsappUrl: "https://wa.me/393290624796",
+      whatsappDisplay: "WhatsApp: +39 329 0624796",
+
+      address: "Corso Giuseppe Mazzini 413, Sanremo",
+      checkin: "15:00 - 00:00",
+      checkout: "10:00 / 10:30",
+
+      wifiName: "WINDTRE-71C7",
+      wifiPassword: "PeQeQ3P3e6PePa6a",
+
+      parkingShort: "Garage privato numero 45",
+
+      documents: {
+        arrival: {
+          it: "arrival-info-it.pdf",
+          en: "arrival-info-en.pdf",
+          de: "arrival-info-de.pdf",
+          fr: "arrival-info-fr.pdf",
+          es: "arrival-info-es.pdf",
+          fallback: "arrival-info-en.pdf"
+        },
+        rules: {
+          it: "house-rules-it.pdf",
+          en: "house-rules-en.pdf",
+          de: "house-rules-de.pdf",
+          fr: "house-rules-fr.pdf",
+          es: "house-rules-es.pdf",
+          fallback: "house-rules-en.pdf"
+        },
+        pet: "",
+        extra: ""
+      }
+    };
+
+    const CONTENT = {
+      it: {
+        pageTitle: "Guida Ospiti",
+        subtitle1: "Guida Ospiti / Guest Guide",
+        subtitle2: "Tutte le informazioni utili per un soggiorno semplice e senza pensieri.",
+
+        mapBtn: "📍 Google Maps",
+        whatsappBtn: "💬 WhatsApp",
+        rulesBtn: "📄 Regole complete",
+        arrivalBtn: "📘 Istruzioni per arrivo",
+        petBtn: "🐾 Regole animali",
+        extraBtn: "📎 Informazioni extra",
+
+        labelAddress: "📍 Indirizzo",
+        labelCheckin: "🕒 Check-in",
+        labelCheckout: "🕘 Check-out",
+        wifiLabel: "📶 Wi-Fi",
+        wifiPasswordLabel: "Password",
+        labelContact: "💬 Contatto",
+        contactNote: "Solo chat 07:00–22:00",
+        labelParking: "🚗 Parcheggio",
+
+        accessTitle: "🗝️ Accesso",
+        accessText: "L’accesso avviene in due passaggi. La prima keybox si trova lato strada, come indicato nelle istruzioni per arrivo. La seconda keybox si trova invece all’interno del garage.",
+        accessNote: "Ti consigliamo di aprire il documento “Istruzioni per arrivo” per seguire correttamente tutti i passaggi.",
+
+        rulesTitle: "🏡 Regole casa",
+        rulesList: [
+          "Troverai lenzuola e asciugamani in bagno e in camera. Non sono previsti cambi durante il soggiorno, ma verranno forniti puliti per ogni nuovo ospite.",
+          "Nel bagno troverai un piccolo kit di benvenuto con alcuni articoli essenziali nel caso in cui ne avessi bisogno.",
+          "Se trovi delle ante chiuse, ti chiediamo di non forzarle: all’interno sono custoditi effetti personali e attrezzature dello staff. Puoi comunque utilizzare gli spazi disponibili.",
+          "<strong>Le finestre hanno un meccanismo di chiusura semplice: verde = finestra sbloccata e apribile; rosso = finestra bloccata. Attenzione: se chiudi la finestra mentre l’indicatore è su rosso, rischi di rompere il gancio. Assicurati sempre che sia su verde prima di chiuderla.</strong>",
+          "Puoi utilizzare la lavatrice se necessario, ma prima di accenderla devi aprire il rubinetto dell’acqua, che si trova sopra il rubinetto del lavandino della cucina, sulle piastrelle. Dopo il lavaggio ricordati di chiuderlo. Evita inoltre di accendere altri elettrodomestici contemporaneamente per prevenire interruzioni di corrente.",
+          "È assolutamente vietato fumare all’interno dell’appartamento.",
+          "In cucina è presente un rilevatore di monossido di carbonio che non deve essere assolutamente scollegato dalla presa.",
+          "Un’impresa di pulizie sanificherà l’appartamento dopo la tua partenza. Ti chiediamo comunque di lasciare un minimo di ordine, specialmente in cucina, e di lavare le stoviglie utilizzate.",
+          "I prodotti per la pulizia sono disponibili direttamente in cucina.",
+          "Non stendere asciugamani o biancheria visibile all’esterno, ad esempio sulla ringhiera del terrazzo. Vanno stesi sulle finestre delle camere. Sono disponibili stendibiancheria a muro sotto la finestra."
+        ],
+
+        wasteTitle: "♻️ Rifiuti",
+        wasteText: "A Sanremo è obbligatoria la raccolta differenziata. Utilizza i seguenti sacchi: giallo per la plastica, azzurro per la carta, trasparente sottile per umido/organico, qualsiasi sacco per l’indifferenziata. Il vetro va conferito nell’apposito cassonetto lungo il marciapiede della strada principale, in qualsiasi giorno.",
+        wasteNote: "Se il soggiorno supera i 2 giorni, i rifiuti vanno collocati alla fine della discesa verso la strada, nell’apposita zona segnalata, seguendo questo calendario: domenica organico + indifferenziata, martedì organico + carta, mercoledì organico + plastica. Se non riesci a esporli come indicato, lascia cortesemente i sacchetti in terrazzo.",
+
+        checkoutTitle: "✅ Prima del check-out",
+        checkoutList: [
+          "Chiudere tutte le finestre.",
+          "Spegnere le luci.",
+          "Controllare di non aver dimenticato effetti personali.",
+          "Chiudere il gas in cucina dall’apposito rubinetto.",
+          "Riporre le chiavi dell’appartamento nella keybox in garage.",
+          "Riporre le chiavi del garage nella keybox lato strada."
+        ],
+
+        suggestionsTitle: "🍽️ Suggerimenti in zona",
+        restaurantsTitle: "🍴 Ristoranti",
+        restaurantsList: [],
+        attractionsTitle: "🏞️ Attrazioni",
+        attractionsList: [],
+
+        mapTitle: "🗺️ Mappa",
+        mapText: "Puoi aprire la posizione direttamente su Google Maps per raggiungere facilmente l’appartamento.",
+        coordsLabel: "Coordinate:",
+        footerText: "Buon soggiorno"
+      },
+
+      en: {
+        pageTitle: "Guest Guide",
+        subtitle1: "Guest Guide",
+        subtitle2: "All the useful information for a smooth and worry-free stay.",
+
+        mapBtn: "📍 Google Maps",
+        whatsappBtn: "💬 WhatsApp",
+        rulesBtn: "📄 Full house rules",
+        arrivalBtn: "📘 Arrival instructions",
+        petBtn: "🐾 Pet rules",
+        extraBtn: "📎 Extra information",
+
+        labelAddress: "📍 Address",
+        labelCheckin: "🕒 Check-in",
+        labelCheckout: "🕘 Check-out",
+        wifiLabel: "📶 Wi-Fi",
+        wifiPasswordLabel: "Password",
+        labelContact: "💬 Contact",
+        contactNote: "Chat only 07:00–22:00",
+        labelParking: "🚗 Parking",
+
+        accessTitle: "🗝️ Access",
+        accessText: "Access takes place in two steps. The first keybox is located on the street side, as shown in the arrival instructions. The second keybox is located inside the garage.",
+        accessNote: "We recommend opening the “Arrival instructions” document to follow all steps correctly.",
+
+        rulesTitle: "🏡 House rules",
+        rulesList: [
+          "You will find bed linen and towels in the bathroom and bedroom. No changes are provided during the stay, but clean linen and towels are supplied for each new guest.",
+          "In the bathroom you will find a small welcome kit with a few essential items in case you need them.",
+          "If you find any closed wardrobe doors, please do not force them open: staff belongings and equipment are stored inside. You may use all available open spaces.",
+          "<strong>The windows have a simple locking system: green means the window is unlocked and can be opened or closed; red means it is locked. Attention: if you close the window while the indicator is on red, you may break the hook. Always make sure it is on green before closing it.</strong>",
+          "You may use the washing machine if needed, but before switching it on, open the water tap located above the kitchen sink tap, on the tiled wall. After washing, remember to close it. Please avoid using other appliances at the same time to prevent power cuts.",
+          "Smoking is strictly forbidden inside the apartment.",
+          "There is a carbon monoxide detector in the kitchen and it must never be unplugged from the socket.",
+          "A cleaning company will sanitize the apartment after your departure. We kindly ask you to leave the apartment reasonably tidy, especially the kitchen, and to wash any used dishes.",
+          "Cleaning products are available directly in the kitchen.",
+          "Please do not hang towels or laundry outside where visible, for example on the terrace railing. They should be hung at the bedroom windows. Wall-mounted drying racks are available below the window."
+        ],
+
+        wasteTitle: "♻️ Waste",
+        wasteText: "Separate waste collection is mandatory in Sanremo. Please use the following bags: yellow for plastic, blue for paper, thin transparent for organic waste, and any bag for general waste. Glass must be disposed of in the dedicated container along the sidewalk of the main road, on any day.",
+        wasteNote: "If your stay is longer than 2 days, waste must be placed at the bottom of the slope leading to the road, in the marked area, following this schedule: Sunday organic + general waste, Tuesday organic + paper, Wednesday organic + plastic. If you are unable to place the waste out as indicated, please leave the bags on the terrace.",
+
+        checkoutTitle: "✅ Before check-out",
+        checkoutList: [
+          "Close all windows.",
+          "Turn off the lights.",
+          "Make sure you have not forgotten any personal belongings.",
+          "Turn off the gas in the kitchen using the dedicated valve.",
+          "Place the apartment keys in the keybox inside the garage.",
+          "Place the garage keys in the street-side keybox."
+        ],
+
+        suggestionsTitle: "🍽️ Local suggestions",
+        restaurantsTitle: "🍴 Restaurants",
+        restaurantsList: [],
+        attractionsTitle: "🏞️ Attractions",
+        attractionsList: [],
+
+        mapTitle: "🗺️ Map",
+        mapText: "You can open the location directly in Google Maps to reach the apartment easily.",
+        coordsLabel: "Coordinates:",
+        footerText: "Enjoy your stay"
+      },
+
+      de: {
+        pageTitle: "Gästeführer",
+        subtitle1: "Gästeführer",
+        subtitle2: "Alle nützlichen Informationen für einen einfachen und sorgenfreien Aufenthalt.",
+
+        mapBtn: "📍 Google Maps",
+        whatsappBtn: "💬 WhatsApp",
+        rulesBtn: "📄 Hausregeln",
+        arrivalBtn: "📘 Anreisehinweise",
+        petBtn: "🐾 Regeln für Haustiere",
+        extraBtn: "📎 Zusätzliche Informationen",
+
+        labelAddress: "📍 Adresse",
+        labelCheckin: "🕒 Check-in",
+        labelCheckout: "🕘 Check-out",
+        wifiLabel: "📶 Wi-Fi",
+        wifiPasswordLabel: "Passwort",
+        labelContact: "💬 Kontakt",
+        contactNote: "Nur Chat 07:00–22:00",
+        labelParking: "🚗 Parkplatz",
+
+        accessTitle: "🗝️ Zugang",
+        accessText: "Der Zugang erfolgt in zwei Schritten. Die erste Schlüsselbox befindet sich straßenseitig, wie in den Anreisehinweisen beschrieben. Die zweite Schlüsselbox befindet sich in der Garage.",
+        accessNote: "Wir empfehlen, das Dokument „Anreisehinweise“ zu öffnen, um alle Schritte korrekt zu befolgen.",
+
+        rulesTitle: "🏡 Hausregeln",
+        rulesList: [
+          "Bettwäsche und Handtücher finden Sie im Bad und im Schlafzimmer. Während des Aufenthalts sind keine Wechsel vorgesehen, aber für jeden neuen Gast werden saubere Textilien bereitgestellt.",
+          "Im Badezimmer finden Sie ein kleines Willkommensset mit einigen wichtigen Artikeln, falls Sie diese benötigen.",
+          "Falls Sie geschlossene Schranktüren finden, bitten wir Sie, diese nicht mit Gewalt zu öffnen: Darin werden persönliche Gegenstände und Arbeitsmaterial des Teams aufbewahrt. Die verfügbaren offenen Bereiche können Sie selbstverständlich nutzen.",
+          "<strong>Die Fenster haben ein einfaches Schließsystem: Grün bedeutet, dass das Fenster entriegelt ist und geöffnet oder geschlossen werden kann; Rot bedeutet, dass es verriegelt ist. Achtung: Wenn Sie das Fenster schließen, während die Anzeige auf Rot steht, kann der Haken beschädigt werden. Stellen Sie immer sicher, dass die Anzeige auf Grün steht, bevor Sie das Fenster schließen.</strong>",
+          "Sie können die Waschmaschine bei Bedarf benutzen. Vor dem Einschalten müssen Sie jedoch den Wasserhahn öffnen, der sich über dem Wasserhahn der Küchenspüle an den Fliesen befindet. Nach dem Waschgang denken Sie bitte daran, ihn wieder zu schließen. Vermeiden Sie außerdem, andere Elektrogeräte gleichzeitig einzuschalten, um Stromausfälle zu vermeiden.",
+          "Rauchen ist in der Wohnung strengstens verboten.",
+          "In der Küche befindet sich ein Kohlenmonoxidmelder, der auf keinen Fall aus der Steckdose gezogen werden darf.",
+          "Nach Ihrer Abreise wird die Wohnung von einem Reinigungsunternehmen desinfiziert. Wir bitten Sie dennoch, die Wohnung in einem ordentlichen Zustand zu hinterlassen, besonders die Küche, und benutztes Geschirr zu spülen.",
+          "Reinigungsprodukte stehen direkt in der Küche zur Verfügung.",
+          "Bitte hängen Sie keine Handtücher oder Wäsche sichtbar nach draußen, zum Beispiel über das Balkongeländer. Sie sollten an den Schlafzimmerfenstern aufgehängt werden. Unter dem Fenster stehen wandmontierte Wäscheständer zur Verfügung."
+        ],
+
+        wasteTitle: "♻️ Müll",
+        wasteText: "In Sanremo ist Mülltrennung verpflichtend. Bitte verwenden Sie folgende Säcke: Gelb für Plastik, Blau für Papier, dünn transparent für Bioabfall und beliebige Säcke für Restmüll. Glas muss in den dafür vorgesehenen Container entlang des Gehwegs an der Hauptstraße entsorgt werden, an jedem Tag.",
+        wasteNote: "Wenn Ihr Aufenthalt länger als 2 Tage dauert, muss der Müll am Ende der Auffahrt zur Straße im markierten Bereich abgestellt werden. Bitte beachten Sie diesen Plan: Sonntag Bio + Restmüll, Dienstag Bio + Papier, Mittwoch Bio + Plastik. Falls Sie den Müll nicht wie angegeben hinausstellen können, lassen Sie die Säcke bitte auf der Terrasse.",
+
+        checkoutTitle: "✅ Vor dem Check-out",
+        checkoutList: [
+          "Alle Fenster schließen.",
+          "Die Lichter ausschalten.",
+          "Prüfen, dass keine persönlichen Gegenstände vergessen wurden.",
+          "Das Gas in der Küche am entsprechenden Hahn schließen.",
+          "Die Wohnungsschlüssel in die Schlüsselbox in der Garage legen.",
+          "Die Garagenschlüssel in die Schlüsselbox an der Straßenseite legen."
+        ],
+
+        suggestionsTitle: "🍽️ Empfehlungen in der Umgebung",
+        restaurantsTitle: "🍴 Restaurants",
+        restaurantsList: [],
+        attractionsTitle: "🏞️ Sehenswürdigkeiten",
+        attractionsList: [],
+
+        mapTitle: "🗺️ Karte",
+        mapText: "Sie können den Standort direkt in Google Maps öffnen, um die Wohnung einfach zu erreichen.",
+        coordsLabel: "Koordinaten:",
+        footerText: "Schönen Aufenthalt"
+      },
+
+      fr: {
+        pageTitle: "Guide des voyageurs",
+        subtitle1: "Guide des voyageurs",
+        subtitle2: "Toutes les informations utiles pour un séjour simple et sans souci.",
+
+        mapBtn: "📍 Google Maps",
+        whatsappBtn: "💬 WhatsApp",
+        rulesBtn: "📄 Règlement",
+        arrivalBtn: "📘 Instructions d’arrivée",
+        petBtn: "🐾 Règles animaux",
+        extraBtn: "📎 Informations supplémentaires",
+
+        labelAddress: "📍 Adresse",
+        labelCheckin: "🕒 Check-in",
+        labelCheckout: "🕘 Check-out",
+        wifiLabel: "📶 Wi-Fi",
+        wifiPasswordLabel: "Mot de passe",
+        labelContact: "💬 Contact",
+        contactNote: "Chat uniquement 07:00–22:00",
+        labelParking: "🚗 Parking",
+
+        accessTitle: "🗝️ Accès",
+        accessText: "L’accès se fait en deux étapes. La première boîte à clés se trouve côté rue, comme indiqué dans les instructions d’arrivée. La seconde boîte à clés se trouve à l’intérieur du garage.",
+        accessNote: "Nous vous conseillons d’ouvrir le document « Instructions d’arrivée » pour suivre correctement toutes les étapes.",
+
+        rulesTitle: "🏡 Règles de la maison",
+        rulesList: [
+          "Vous trouverez les draps et les serviettes dans la salle de bain et dans la chambre. Aucun changement n’est prévu pendant le séjour, mais du linge propre est fourni pour chaque nouvel hôte.",
+          "Dans la salle de bain, vous trouverez un petit kit de bienvenue avec quelques articles essentiels si nécessaire.",
+          "Si vous trouvez des portes d’armoire fermées, merci de ne pas les forcer : des effets personnels et du matériel de l’équipe y sont rangés. Vous pouvez bien sûr utiliser les espaces disponibles.",
+          "<strong>Les fenêtres ont un système de fermeture simple : vert = la fenêtre est déverrouillée et peut être ouverte ou fermée ; rouge = la fenêtre est verrouillée. Attention : si vous fermez la fenêtre alors que l’indicateur est sur rouge, vous risquez de casser le crochet. Vérifiez toujours qu’il soit sur vert avant de la fermer.</strong>",
+          "Vous pouvez utiliser le lave-linge si nécessaire, mais avant de le démarrer, ouvrez le robinet d’eau situé au-dessus du robinet de l’évier de la cuisine, sur le carrelage. Après le lavage, pensez à le refermer. Évitez également d’allumer d’autres appareils électroménagers en même temps afin d’éviter les coupures de courant.",
+          "Il est strictement interdit de fumer à l’intérieur de l’appartement.",
+          "Dans la cuisine, un détecteur de monoxyde de carbone est installé et ne doit en aucun cas être débranché de la prise.",
+          "Une entreprise de nettoyage désinfectera l’appartement après votre départ. Nous vous demandons toutefois de laisser un minimum d’ordre, surtout dans la cuisine, et de laver la vaisselle utilisée.",
+          "Les produits de nettoyage sont disponibles directement dans la cuisine.",
+          "Merci de ne pas faire sécher serviettes ou linge à l’extérieur de manière visible, par exemple sur la rambarde de la terrasse. Ils doivent être étendus aux fenêtres des chambres. Des étendoirs muraux sont disponibles sous la fenêtre."
+        ],
+
+        wasteTitle: "♻️ Déchets",
+        wasteText: "Le tri sélectif est obligatoire à Sanremo. Merci d’utiliser les sacs suivants : jaune pour le plastique, bleu pour le papier, transparent fin pour les déchets organiques et n’importe quel sac pour les déchets non recyclables. Le verre doit être jeté dans le conteneur prévu à cet effet le long du trottoir de la route principale, n’importe quel jour.",
+        wasteNote: "Si votre séjour dépasse 2 jours, les déchets doivent être déposés au bas de la descente vers la route, dans la zone indiquée, selon ce calendrier : dimanche organique + non recyclables, mardi organique + papier, mercredi organique + plastique. Si vous ne pouvez pas sortir les déchets comme indiqué, merci de laisser les sacs sur la terrasse.",
+
+        checkoutTitle: "✅ Avant le check-out",
+        checkoutList: [
+          "Fermer toutes les fenêtres.",
+          "Éteindre les lumières.",
+          "Vérifier de ne pas avoir oublié d’effets personnels.",
+          "Fermer le gaz dans la cuisine à l’aide du robinet prévu à cet effet.",
+          "Déposer les clés de l’appartement dans la boîte à clés du garage.",
+          "Déposer les clés du garage dans la boîte à clés côté rue."
+        ],
+
+        suggestionsTitle: "🍽️ Suggestions dans les environs",
+        restaurantsTitle: "🍴 Restaurants",
+        restaurantsList: [],
+        attractionsTitle: "🏞️ Attractions",
+        attractionsList: [],
+
+        mapTitle: "🗺️ Carte",
+        mapText: "Vous pouvez ouvrir l’emplacement directement dans Google Maps pour rejoindre facilement l’appartement.",
+        coordsLabel: "Coordonnées :",
+        footerText: "Bon séjour"
+      },
+
+      es: {
+        pageTitle: "Guía para huéspedes",
+        subtitle1: "Guía para huéspedes",
+        subtitle2: "Toda la información útil para una estancia sencilla y sin preocupaciones.",
+
+        mapBtn: "📍 Google Maps",
+        whatsappBtn: "💬 WhatsApp",
+        rulesBtn: "📄 Normas de la casa",
+        arrivalBtn: "📘 Instrucciones de llegada",
+        petBtn: "🐾 Normas mascotas",
+        extraBtn: "📎 Información extra",
+
+        labelAddress: "📍 Dirección",
+        labelCheckin: "🕒 Check-in",
+        labelCheckout: "🕘 Check-out",
+        wifiLabel: "📶 Wi-Fi",
+        wifiPasswordLabel: "Contraseña",
+        labelContact: "💬 Contacto",
+        contactNote: "Solo chat 07:00–22:00",
+        labelParking: "🚗 Aparcamiento",
+
+        accessTitle: "🗝️ Acceso",
+        accessText: "El acceso se realiza en dos pasos. La primera caja de llaves está en la calle, tal como se indica en las instrucciones de llegada. La segunda caja de llaves está dentro del garaje.",
+        accessNote: "Te recomendamos abrir el documento “Instrucciones de llegada” para seguir correctamente todos los pasos.",
+
+        rulesTitle: "🏡 Normas de la casa",
+        rulesList: [
+          "Encontrarás sábanas y toallas en el baño y en la habitación. No se prevén cambios durante la estancia, pero se proporcionan limpias para cada nuevo huésped.",
+          "En el baño encontrarás un pequeño kit de bienvenida con algunos artículos esenciales en caso de necesitarlos.",
+          "Si encuentras puertas de armario cerradas, te pedimos que no las fuerces: dentro se guardan objetos personales y material del personal. Puedes utilizar los espacios disponibles.",
+          "<strong>Las ventanas tienen un sistema de cierre sencillo: verde = la ventana está desbloqueada y puede abrirse o cerrarse; rojo = la ventana está bloqueada. Atención: si cierras la ventana mientras el indicador está en rojo, puedes romper el gancho. Asegúrate siempre de que esté en verde antes de cerrarla.</strong>",
+          "Puedes utilizar la lavadora si lo necesitas, pero antes de encenderla debes abrir el grifo del agua, situado encima del grifo del fregadero de la cocina, en los azulejos. Después del lavado, recuerda cerrarlo. Además, evita encender otros electrodomésticos al mismo tiempo para prevenir cortes de corriente.",
+          "Está absolutamente prohibido fumar dentro del apartamento.",
+          "En la cocina hay un detector de monóxido de carbono que no debe desconectarse de la toma bajo ningún concepto.",
+          "Una empresa de limpieza desinfectará el apartamento después de tu salida. Aun así, te pedimos que dejes un mínimo de orden, especialmente en la cocina, y que laves la vajilla utilizada.",
+          "Los productos de limpieza están disponibles directamente en la cocina.",
+          "No tiendas toallas ni ropa visible en el exterior, por ejemplo en la barandilla de la terraza. Deben tenderse en las ventanas de las habitaciones. Hay tendederos de pared disponibles debajo de la ventana."
+        ],
+
+        wasteTitle: "♻️ Residuos",
+        wasteText: "En Sanremo es obligatorio separar los residuos. Utiliza las siguientes bolsas: amarilla para plástico, azul para papel, transparente fina para orgánico y cualquier bolsa para residuos no reciclables. El vidrio debe depositarse en el contenedor correspondiente a lo largo de la acera de la carretera principal, cualquier día.",
+        wasteNote: "Si tu estancia supera los 2 días, los residuos deben colocarse al final de la bajada hacia la carretera, en la zona señalizada, siguiendo este calendario: domingo orgánico + resto, martes orgánico + papel, miércoles orgánico + plástico. Si no consigues sacarlos como se indica, por favor deja las bolsas en la terraza.",
+
+        checkoutTitle: "✅ Antes del check-out",
+        checkoutList: [
+          "Cerrar todas las ventanas.",
+          "Apagar las luces.",
+          "Comprobar que no hayas olvidado objetos personales.",
+          "Cerrar el gas de la cocina desde la llave correspondiente.",
+          "Dejar las llaves del apartamento en la caja de llaves del garaje.",
+          "Dejar las llaves del garaje en la caja de llaves situada en la calle."
+        ],
+
+        suggestionsTitle: "🍽️ Sugerencias en la zona",
+        restaurantsTitle: "🍴 Restaurantes",
+        restaurantsList: [],
+        attractionsTitle: "🏞️ Atracciones",
+        attractionsList: [],
+
+        mapTitle: "🗺️ Mapa",
+        mapText: "Puedes abrir la ubicación directamente en Google Maps para llegar fácilmente al apartamento.",
+        coordsLabel: "Coordenadas:",
+        footerText: "Disfruta tu estancia"
+      }
+    };
+
+    function hasContentValue(value) {
+      return value !== null && value !== undefined && String(value).trim() !== "";
+    }
+
+    function renderList(id, items) {
+      const list = document.getElementById(id);
+      if (!list) return;
+      list.innerHTML = (items || []).map(item => `<li>${item}</li>`).join("");
+    }
+
+    function getDocumentForLang(docGroup, lang) {
+      if (!docGroup) return "";
+      if (typeof docGroup === "string") return docGroup;
+      if (docGroup[lang]) return docGroup[lang];
+      return docGroup.fallback || "";
+    }
+
+    function hasContentArray(arr) {
+      return Array.isArray(arr) && arr.length > 0;
+    }
+
+    function setHidden(id, hidden) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.classList.toggle("hidden", hidden);
+    }
+
+    function setText(id, value) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.textContent = value || "";
+    }
+
+    function setTextOrHide(id, value) {
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      if (value && String(value).trim() !== "") {
+        el.textContent = value;
+        el.classList.remove("hidden");
+      } else {
+        el.textContent = "";
+        el.classList.add("hidden");
+      }
+    }
+
+    function setTextOrClear(id, value) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.textContent = hasContentValue(value) ? value : "";
+    }
+
+    function setInfoItemVisibility(itemId, labelId, valueId, labelText, valueText, noteId, noteText) {
+      const hasValue = hasContentValue(valueText);
+      const hasNote = hasContentValue(noteText);
+
+      setTextOrClear(labelId, hasValue || hasNote ? labelText : "");
+      setTextOrClear(valueId, valueText);
+
+      if (noteId) {
+        setTextOrHide(noteId, noteText);
+      }
+
+      setHidden(itemId, !(hasValue || hasNote));
+    }
+
+    function setButtonVisibility(id, href) {
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      if (!href || href === "#") {
+        el.classList.add("hidden");
+        el.removeAttribute("href");
+      } else {
+        el.classList.remove("hidden");
+        el.href = href;
+      }
+    }
+
+    function updateInfoCardVisibility() {
+      const itemIds = [
+        "address-item",
+        "checkin-item",
+        "checkout-item",
+        "wifi-item",
+        "contact-item",
+        "parking-item"
+      ];
+
+      const hasVisibleItems = itemIds.some(id => {
+        const el = document.getElementById(id);
+        return el && !el.classList.contains("hidden");
+      });
+
+      setHidden("info-card", !hasVisibleItems);
+    }
+
+    function updateDocsGridVisibility() {
+      const docsGrid = document.getElementById("docs-grid");
+      if (!docsGrid) return;
+
+      const hasVisibleButtons = Array.from(docsGrid.querySelectorAll(".doc-btn"))
+        .some(btn => !btn.classList.contains("hidden"));
+
+      if (hasVisibleButtons) {
+        docsGrid.classList.remove("hidden");
+      } else {
+        docsGrid.classList.add("hidden");
+      }
+    }
+
+    function setLanguage(lang) {
+      const t = CONTENT[lang] || CONTENT.it;
+      const coverImage = document.getElementById("cover-image");
+      const safeDocuments = PROPERTY.documents || {};
+
+      document.documentElement.lang = lang;
+      document.title = `${PROPERTY.apartmentName || t.pageTitle} - ${t.pageTitle}`;
+
+      if (coverImage) {
+        if (hasContentValue(PROPERTY.coverImage)) {
+          coverImage.src = PROPERTY.coverImage;
+          coverImage.alt = PROPERTY.apartmentName || t.pageTitle;
+          coverImage.classList.remove("hidden");
+        } else {
+          coverImage.removeAttribute("src");
+          coverImage.alt = "";
+          coverImage.classList.add("hidden");
+        }
+      }
+
+      setText("apartment-name", PROPERTY.apartmentName);
+      setText("subtitle-1", t.subtitle1);
+      setText("subtitle-2", t.subtitle2);
+
+      setText("map-btn", t.mapBtn);
+      setButtonVisibility("map-btn", PROPERTY.mapsUrl || "");
+
+      setText("whatsapp-btn", t.whatsappBtn);
+      setButtonVisibility("whatsapp-btn", PROPERTY.whatsappUrl || "");
+
+      const rulesDoc = getDocumentForLang(safeDocuments.rules, lang);
+      const arrivalDoc = getDocumentForLang(safeDocuments.arrival, lang);
+      const petDoc = getDocumentForLang(safeDocuments.pet, lang);
+      const extraDoc = getDocumentForLang(safeDocuments.extra, lang);
+
+      setText("rules-btn", t.rulesBtn);
+      setButtonVisibility("rules-btn", rulesDoc);
+
+      setText("arrival-btn", t.arrivalBtn);
+      setButtonVisibility("arrival-btn", arrivalDoc);
+
+      setText("pet-btn", t.petBtn);
+      setButtonVisibility("pet-btn", petDoc);
+
+      setText("extra-btn", t.extraBtn);
+      setButtonVisibility("extra-btn", extraDoc);
+
+      updateDocsGridVisibility();
+
+      const wifiPasswordText = hasContentValue(PROPERTY.wifiPassword)
+        ? `${t.wifiPasswordLabel}: ${PROPERTY.wifiPassword}`
+        : "";
+
+      setInfoItemVisibility("address-item", "label-address", "address-value", t.labelAddress, PROPERTY.address);
+      setInfoItemVisibility("checkin-item", "label-checkin", "checkin-value", t.labelCheckin, PROPERTY.checkin);
+      setInfoItemVisibility("checkout-item", "label-checkout", "checkout-value", t.labelCheckout, PROPERTY.checkout);
+      setInfoItemVisibility("wifi-item", "label-wifi", "wifi-name", t.wifiLabel, PROPERTY.wifiName, "wifi-password", wifiPasswordText);
+      setInfoItemVisibility("contact-item", "label-contact", "contact-value", t.labelContact, PROPERTY.whatsappDisplay, "contact-note", t.contactNote);
+      setInfoItemVisibility("parking-item", "label-parking", "parking-short", t.labelParking, PROPERTY.parkingShort);
+
+      updateInfoCardVisibility();
+
+      const hasAccessContent = hasContentValue(t.accessText) || hasContentValue(t.accessNote);
+      setTextOrClear("access-title", hasAccessContent ? t.accessTitle : "");
+      setTextOrClear("access-text", t.accessText);
+      setTextOrHide("access-note", t.accessNote);
+      setHidden("access-card", !hasAccessContent);
+
+      const hasRulesContent = hasContentArray(t.rulesList);
+      setTextOrClear("rules-title", hasRulesContent ? t.rulesTitle : "");
+      renderList("rules-list", hasRulesContent ? t.rulesList : []);
+      setHidden("rules-card", !hasRulesContent);
+
+      const hasWasteContent = hasContentValue(t.wasteText) || hasContentValue(t.wasteNote);
+      setTextOrClear("waste-title", hasWasteContent ? t.wasteTitle : "");
+      setTextOrClear("waste-text", t.wasteText);
+      setTextOrHide("waste-note", t.wasteNote);
+      setHidden("waste-card", !hasWasteContent);
+
+      const hasCheckoutContent = hasContentArray(t.checkoutList);
+      setTextOrClear("checkout-title", hasCheckoutContent ? t.checkoutTitle : "");
+      renderList("checkout-list", hasCheckoutContent ? t.checkoutList : []);
+      setHidden("checkout-card", !hasCheckoutContent);
+
+      const hasRestaurants = hasContentArray(t.restaurantsList);
+      const hasAttractions = hasContentArray(t.attractionsList);
+
+      const suggestionsCard = document.getElementById("suggestions-card");
+      const restaurantsBlock = document.getElementById("restaurants-block");
+      const attractionsBlock = document.getElementById("attractions-block");
+
+      if (hasRestaurants || hasAttractions) {
+        suggestionsCard.classList.remove("hidden");
+        setText("suggestions-title", t.suggestionsTitle);
+
+        if (hasRestaurants) {
+          restaurantsBlock.classList.remove("hidden");
+          setText("restaurants-title", t.restaurantsTitle);
+          renderList("restaurants-list", t.restaurantsList);
+        } else {
+          restaurantsBlock.classList.add("hidden");
+          renderList("restaurants-list", []);
+        }
+
+        if (hasAttractions) {
+          attractionsBlock.classList.remove("hidden");
+          setText("attractions-title", t.attractionsTitle);
+          renderList("attractions-list", t.attractionsList);
+        } else {
+          attractionsBlock.classList.add("hidden");
+          renderList("attractions-list", []);
+        }
+      } else {
+        suggestionsCard.classList.add("hidden");
+      }
+
+      const hasCoordinates = hasContentValue(PROPERTY.coordinates);
+      const hasMapContent = hasContentValue(t.mapText) || hasCoordinates;
+
+      setTextOrClear("map-title", hasMapContent ? t.mapTitle : "");
+      setTextOrClear("map-text", t.mapText);
+      setTextOrClear("coords-label", hasCoordinates ? t.coordsLabel : "");
+      setTextOrClear("coords-value", PROPERTY.coordinates);
+      setHidden("coords-row", !hasCoordinates);
+      setHidden("map-card", !hasMapContent);
+
+      setText("footer-text", t.footerText);
+
+      document.querySelectorAll(".lang-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.lang === lang);
+      });
+
+      try {
+        localStorage.setItem("guestGuideLang", lang);
+      } catch (e) {}
+    }
+
+    document.querySelectorAll(".lang-btn").forEach(btn => {
+      btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
+    });
+
+    let savedLang = "it";
+    try {
+      savedLang = localStorage.getItem("guestGuideLang") || "it";
+    } catch (e) {}
+
+    setLanguage(savedLang);
+  </script>
+</body>
+</html>
