@@ -210,11 +210,39 @@
       display: none !important;
     }
 
-    .footer {
+    .ecosystem-card {
       text-align: center;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    }
+
+    .ecosystem-kicker {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid #fed7aa;
+      background: #fff7ed;
+      color: #9a3412;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .ecosystem-title {
+      margin-bottom: 12px;
+    }
+
+    .ecosystem-text {
+      max-width: 640px;
+      margin: 0 auto 18px;
       color: var(--muted);
-      font-size: 14px;
-      padding: 8px 0 24px;
+      font-size: 16px;
+    }
+
+    .ecosystem-actions {
+      max-width: 360px;
+      margin: 0 auto;
     }
 
     @media (max-width: 900px) {
@@ -378,13 +406,19 @@
       </div>
     </section>
 
-    <section class="card" id="map-card">
-      <h2 id="map-title"></h2>
-      <p id="map-text"></p>
-      <p id="coords-row"><strong id="coords-label"></strong> <span id="coords-value"></span></p>
+    <section class="card" id="utility-card">
+      <h2 id="utility-title"></h2>
+      <ul id="utility-list"></ul>
     </section>
 
-    <div class="footer" id="footer-text"></div>
+    <section class="card ecosystem-card" id="ecosystem-card">
+      <div class="ecosystem-kicker" id="ecosystem-kicker"></div>
+      <h2 class="ecosystem-title" id="ecosystem-title"></h2>
+      <p class="ecosystem-text" id="ecosystem-text"></p>
+      <div class="button-grid ecosystem-actions">
+        <a class="action-btn" href="https://ecosistema-fga.fgahousesolutions.workers.dev/#structures" target="_blank" rel="noopener noreferrer" id="ecosystem-btn"></a>
+      </div>
+    </section>
   </div>
 
   <script>
@@ -484,14 +518,32 @@
 
         suggestionsTitle: "🍽️ Suggerimenti in zona",
         restaurantsTitle: "🍴 Ristoranti",
-        restaurantsList: [],
-        attractionsTitle: "🏞️ Attrazioni",
-        attractionsList: [],
+        restaurantsList: [
+          "La Porta Verde",
+          "Taverna al 29",
+          "Mille806",
+          "Ossi di Seppia",
+          "Ittiturismo Patrizia"
+        ],
+        attractionsTitle: "🍸 Aperitivo",
+        attractionsList: [
+          "Sottocoperta — Piazza Bresca",
+          "La Gintoneria — Piazza Bresca",
+          "Ventuno — Piazza Bresca",
+          "MoloAkka — Portosole (vista mare)"
+        ],
 
-        mapTitle: "🗺️ Mappa",
-        mapText: "Puoi aprire la posizione direttamente su Google Maps per raggiungere facilmente l’appartamento.",
-        coordsLabel: "Coordinate:",
-        footerText: "Buon soggiorno"
+        utilityTitle: "☎️ Numeri utili",
+        utilityList: [
+          "112 — Emergenze",
+          "115 — Vigili del Fuoco",
+          "118 — Emergenza sanitaria",
+          '<a href="tel:+390184541454">Taxi Sanremo — 0184 541454</a>'
+        ],
+        ecosystemKicker: "FGA House Solutions",
+        ecosystemTitle: "Scopri l’Ecosistema FGA",
+        ecosystemText: "Esperienze diverse, un unico stile di accoglienza. Se stai già pensando al tuo prossimo viaggio, puoi esplorare le altre strutture FGA attualmente disponibili.",
+        ecosystemBtn: "Scopri il tuo prossimo soggiorno"
       },
 
       en: {
@@ -549,14 +601,32 @@
 
         suggestionsTitle: "🍽️ Local suggestions",
         restaurantsTitle: "🍴 Restaurants",
-        restaurantsList: [],
-        attractionsTitle: "🏞️ Attractions",
-        attractionsList: [],
+        restaurantsList: [
+          "La Porta Verde",
+          "Taverna al 29",
+          "Mille806",
+          "Ossi di Seppia",
+          "Ittiturismo Patrizia"
+        ],
+        attractionsTitle: "🍸 Aperitif",
+        attractionsList: [
+          "Sottocoperta — Piazza Bresca",
+          "La Gintoneria — Piazza Bresca",
+          "Ventuno — Piazza Bresca",
+          "MoloAkka — Portosole (sea view)"
+        ],
 
-        mapTitle: "🗺️ Map",
-        mapText: "You can open the location directly in Google Maps to reach the apartment easily.",
-        coordsLabel: "Coordinates:",
-        footerText: "Enjoy your stay"
+        utilityTitle: "☎️ Useful numbers",
+        utilityList: [
+          "112 — Emergency",
+          "115 — Fire brigade",
+          "118 — Medical emergency",
+          '<a href="tel:+390184541454">Sanremo Taxi — 0184 541454</a>'
+        ],
+        ecosystemKicker: "FGA House Solutions",
+        ecosystemTitle: "Discover the FGA Ecosystem",
+        ecosystemText: "Different stays, one shared style of hospitality. If you are already thinking about your next trip, you can explore the other FGA properties currently available.",
+        ecosystemBtn: "Discover your next stay"
       },
 
       de: {
@@ -614,14 +684,32 @@
 
         suggestionsTitle: "🍽️ Empfehlungen in der Umgebung",
         restaurantsTitle: "🍴 Restaurants",
-        restaurantsList: [],
-        attractionsTitle: "🏞️ Sehenswürdigkeiten",
-        attractionsList: [],
+        restaurantsList: [
+          "La Porta Verde",
+          "Taverna al 29",
+          "Mille806",
+          "Ossi di Seppia",
+          "Ittiturismo Patrizia"
+        ],
+        attractionsTitle: "🍸 Aperitif",
+        attractionsList: [
+          "Sottocoperta — Piazza Bresca",
+          "La Gintoneria — Piazza Bresca",
+          "Ventuno — Piazza Bresca",
+          "MoloAkka — Portosole (Meerblick)"
+        ],
 
-        mapTitle: "🗺️ Karte",
-        mapText: "Sie können den Standort direkt in Google Maps öffnen, um die Wohnung einfach zu erreichen.",
-        coordsLabel: "Koordinaten:",
-        footerText: "Schönen Aufenthalt"
+        utilityTitle: "☎️ Nützliche Nummern",
+        utilityList: [
+          "112 — Notruf",
+          "115 — Feuerwehr",
+          "118 — Medizinischer Notdienst",
+          '<a href="tel:+390184541454">Taxi Sanremo — 0184 541454</a>'
+        ],
+        ecosystemKicker: "FGA House Solutions",
+        ecosystemTitle: "Entdecke das FGA-Ökosystem",
+        ecosystemText: "Unterschiedliche Aufenthalte, ein gemeinsamer Stil der Gastfreundschaft. Wenn du schon an deine nächste Reise denkst, kannst du die weiteren derzeit verfügbaren FGA-Unterkünfte entdecken.",
+        ecosystemBtn: "Entdecke deinen nächsten Aufenthalt"
       },
 
       fr: {
@@ -679,14 +767,32 @@
 
         suggestionsTitle: "🍽️ Suggestions dans les environs",
         restaurantsTitle: "🍴 Restaurants",
-        restaurantsList: [],
-        attractionsTitle: "🏞️ Attractions",
-        attractionsList: [],
+        restaurantsList: [
+          "La Porta Verde",
+          "Taverna al 29",
+          "Mille806",
+          "Ossi di Seppia",
+          "Ittiturismo Patrizia"
+        ],
+        attractionsTitle: "🍸 Apéritif",
+        attractionsList: [
+          "Sottocoperta — Piazza Bresca",
+          "La Gintoneria — Piazza Bresca",
+          "Ventuno — Piazza Bresca",
+          "MoloAkka — Portosole (vue mer)"
+        ],
 
-        mapTitle: "🗺️ Carte",
-        mapText: "Vous pouvez ouvrir l’emplacement directement dans Google Maps pour rejoindre facilement l’appartement.",
-        coordsLabel: "Coordonnées :",
-        footerText: "Bon séjour"
+        utilityTitle: "☎️ Numéros utiles",
+        utilityList: [
+          "112 — Urgences",
+          "115 — Pompiers",
+          "118 — Urgence médicale",
+          '<a href="tel:+390184541454">Taxi Sanremo — 0184 541454</a>'
+        ],
+        ecosystemKicker: "FGA House Solutions",
+        ecosystemTitle: "Découvrir l’Écosystème FGA",
+        ecosystemText: "Des séjours différents, un même style d’accueil. Si vous pensez déjà à votre prochain voyage, vous pouvez explorer les autres hébergements FGA actuellement disponibles.",
+        ecosystemBtn: "Découvrir votre prochain séjour"
       },
 
       es: {
@@ -744,14 +850,32 @@
 
         suggestionsTitle: "🍽️ Sugerencias en la zona",
         restaurantsTitle: "🍴 Restaurantes",
-        restaurantsList: [],
-        attractionsTitle: "🏞️ Atracciones",
-        attractionsList: [],
+        restaurantsList: [
+          "La Porta Verde",
+          "Taverna al 29",
+          "Mille806",
+          "Ossi di Seppia",
+          "Ittiturismo Patrizia"
+        ],
+        attractionsTitle: "🍸 Aperitivo",
+        attractionsList: [
+          "Sottocoperta — Piazza Bresca",
+          "La Gintoneria — Piazza Bresca",
+          "Ventuno — Piazza Bresca",
+          "MoloAkka — Portosole (vista al mar)"
+        ],
 
-        mapTitle: "🗺️ Mapa",
-        mapText: "Puedes abrir la ubicación directamente en Google Maps para llegar fácilmente al apartamento.",
-        coordsLabel: "Coordenadas:",
-        footerText: "Disfruta tu estancia"
+        utilityTitle: "☎️ Números útiles",
+        utilityList: [
+          "112 — Emergencias",
+          "115 — Bomberos",
+          "118 — Emergencia médica",
+          '<a href="tel:+390184541454">Taxi Sanremo — 0184 541454</a>'
+        ],
+        ecosystemKicker: "FGA House Solutions",
+        ecosystemTitle: "Descubre el Ecosistema FGA",
+        ecosystemText: "Experiencias diferentes, un mismo estilo de hospitalidad. Si ya estás pensando en tu próximo viaje, puedes explorar las otras propiedades FGA actualmente disponibles.",
+        ecosystemBtn: "Descubre tu próxima estancia"
       }
     };
 
@@ -982,17 +1106,15 @@
         suggestionsCard.classList.add("hidden");
       }
 
-      const hasCoordinates = hasContentValue(PROPERTY.coordinates);
-      const hasMapContent = hasContentValue(t.mapText) || hasCoordinates;
+      const hasUtilityContent = hasContentArray(t.utilityList);
+      setTextOrClear("utility-title", hasUtilityContent ? t.utilityTitle : "");
+      renderList("utility-list", hasUtilityContent ? t.utilityList : []);
+      setHidden("utility-card", !hasUtilityContent);
 
-      setTextOrClear("map-title", hasMapContent ? t.mapTitle : "");
-      setTextOrClear("map-text", t.mapText);
-      setTextOrClear("coords-label", hasCoordinates ? t.coordsLabel : "");
-      setTextOrClear("coords-value", PROPERTY.coordinates);
-      setHidden("coords-row", !hasCoordinates);
-      setHidden("map-card", !hasMapContent);
-
-      setText("footer-text", t.footerText);
+      setText("ecosystem-kicker", t.ecosystemKicker);
+      setText("ecosystem-title", t.ecosystemTitle);
+      setText("ecosystem-text", t.ecosystemText);
+      setText("ecosystem-btn", t.ecosystemBtn);
 
       document.querySelectorAll(".lang-btn").forEach(btn => {
         btn.classList.toggle("active", btn.dataset.lang === lang);
