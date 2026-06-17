@@ -153,6 +153,62 @@
       margin-bottom: 22px;
     }
 
+    .accordion-card {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .accordion-toggle {
+      width: 100%;
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 22px 28px;
+      border: 0;
+      background: transparent;
+      color: var(--text);
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .accordion-title {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .accordion-icon {
+      width: 34px;
+      height: 34px;
+      flex: 0 0 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--border);
+      border-radius: 999px;
+      font-size: 24px;
+      line-height: 1;
+      font-weight: 500;
+      transition: 0.2s ease;
+    }
+
+    .accordion-toggle[aria-expanded="true"] .accordion-icon {
+      transform: rotate(45deg);
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .accordion-panel {
+      padding: 0 28px 28px;
+    }
+
+    .accordion-panel[hidden] {
+      display: none;
+    }
+
     .info-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -270,6 +326,23 @@
         padding: 20px;
       }
 
+      .accordion-card {
+        padding: 0;
+      }
+
+      .accordion-toggle {
+        min-height: 64px;
+        padding: 18px 20px;
+      }
+
+      .accordion-title {
+        font-size: 23px;
+      }
+
+      .accordion-panel {
+        padding: 0 20px 20px;
+      }
+
       .primary-grid,
       .docs-grid {
         grid-template-columns: 1fr;
@@ -330,8 +403,13 @@
       </div>
     </section>
 
-    <section class="card" id="info-card">
-      <div class="info-grid">
+    <section class="card accordion-card" id="info-card">
+      <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="info-panel">
+        <span class="accordion-title" id="info-title"></span>
+        <span class="accordion-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="accordion-panel" id="info-panel" hidden>
+        <div class="info-grid">
         <div class="info-stack">
           <div class="info-item" id="address-item">
             <span class="label" id="label-address"></span>
@@ -365,35 +443,71 @@
           <div class="info-item" id="parking-item">
             <span class="label" id="label-parking"></span>
             <div class="value" id="parking-short"></div>
+            <div class="note" id="parking-note"></div>
           </div>
+        </div>
         </div>
       </div>
     </section>
 
-    <section class="card" id="access-card">
-      <h2 id="access-title"></h2>
-      <p id="access-text"></p>
-      <p class="muted" id="access-note"></p>
+    <section class="card accordion-card" id="access-card">
+      <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="access-panel">
+        <span class="accordion-title" id="access-title"></span>
+        <span class="accordion-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="accordion-panel" id="access-panel" hidden>
+        <p id="access-text"></p>
+        <p class="muted" id="access-note"></p>
+      </div>
     </section>
 
-    <section class="card" id="rules-card">
-      <h2 id="rules-title"></h2>
-      <ul id="rules-list"></ul>
+    <section class="card accordion-card" id="rules-card">
+      <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="rules-panel">
+        <span class="accordion-title" id="rules-title"></span>
+        <span class="accordion-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="accordion-panel" id="rules-panel" hidden>
+        <ul id="rules-list"></ul>
+      </div>
     </section>
 
-    <section class="card" id="waste-card">
-      <h2 id="waste-title"></h2>
-      <p id="waste-text"></p>
-      <p class="muted" id="waste-note"></p>
+    <section class="card accordion-card" id="washer-card">
+      <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="washer-panel">
+        <span class="accordion-title" id="washer-title"></span>
+        <span class="accordion-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="accordion-panel" id="washer-panel" hidden>
+        <p id="washer-text"></p>
+      </div>
     </section>
 
-    <section class="card" id="checkout-card">
-      <h2 id="checkout-title"></h2>
-      <ul id="checkout-list"></ul>
+    <section class="card accordion-card" id="waste-card">
+      <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="waste-panel">
+        <span class="accordion-title" id="waste-title"></span>
+        <span class="accordion-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="accordion-panel" id="waste-panel" hidden>
+        <p id="waste-text"></p>
+        <p class="muted" id="waste-note"></p>
+      </div>
     </section>
 
-    <section class="card hidden" id="suggestions-card">
-      <h2 id="suggestions-title"></h2>
+    <section class="card accordion-card" id="checkout-card">
+      <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="checkout-panel">
+        <span class="accordion-title" id="checkout-title"></span>
+        <span class="accordion-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="accordion-panel" id="checkout-panel" hidden>
+        <ul id="checkout-list"></ul>
+      </div>
+    </section>
+
+    <section class="card accordion-card hidden" id="suggestions-card">
+      <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="suggestions-panel">
+        <span class="accordion-title" id="suggestions-title"></span>
+        <span class="accordion-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="accordion-panel" id="suggestions-panel" hidden>
 
       <div id="restaurants-block">
         <h3 id="restaurants-title"></h3>
@@ -404,11 +518,17 @@
         <h3 id="attractions-title" style="margin-top:20px;"></h3>
         <ul id="attractions-list"></ul>
       </div>
+      </div>
     </section>
 
-    <section class="card" id="utility-card">
-      <h2 id="utility-title"></h2>
-      <ul id="utility-list"></ul>
+    <section class="card accordion-card" id="utility-card">
+      <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="utility-panel">
+        <span class="accordion-title" id="utility-title"></span>
+        <span class="accordion-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="accordion-panel" id="utility-panel" hidden>
+        <ul id="utility-list"></ul>
+      </div>
     </section>
 
     <section class="card ecosystem-card" id="ecosystem-card">
@@ -480,12 +600,14 @@
         labelCheckout: "🕘 Check-out",
         wifiLabel: "📶 Wi-Fi",
         wifiPasswordLabel: "Password",
-        labelContact: "💬 Contatto",
-        contactNote: "Solo chat 07:00–22:00",
-        labelParking: "🚗 Parcheggio",
+      labelContact: "💬 Contatto",
+      contactNote: "Solo chat 07:00–22:00",
+      labelParking: "🚗 Parcheggio",
+      infoTitle: "ℹ️ Informazioni principali",
+      parkingNote: "Il garage è di medie dimensioni: se arrivi con un’auto grande che non entra completamente, puoi inserirla fin dove riesci e lasciare il portone aperto. Quando esci dal box 45, percorri la strada al contrario rispetto al tragitto fatto all’arrivo.",
 
-        accessTitle: "🗝️ Accesso",
-        accessText: "L’accesso avviene in due passaggi. La prima keybox si trova lato strada, come indicato nelle istruzioni per arrivo. La seconda keybox si trova invece all’interno del garage.",
+      accessTitle: "🗝️ Accesso",
+      accessText: "L’accesso avviene in due passaggi. La prima keybox si trova lato strada, come indicato nelle istruzioni per arrivo. La seconda keybox si trova invece all’interno del garage.",
         accessNote: "Ti consigliamo di aprire il documento “Istruzioni per arrivo” per seguire correttamente tutti i passaggi.",
 
         rulesTitle: "🏡 Regole casa",
@@ -494,13 +616,14 @@
           "Nel bagno troverai un piccolo kit di benvenuto con alcuni articoli essenziali nel caso in cui ne avessi bisogno.",
           "Se trovi delle ante chiuse, ti chiediamo di non forzarle: all’interno sono custoditi effetti personali e attrezzature dello staff. Puoi comunque utilizzare gli spazi disponibili.",
           "<strong>Le finestre hanno un meccanismo di chiusura semplice: verde = finestra sbloccata e apribile; rosso = finestra bloccata. Attenzione: se chiudi la finestra mentre l’indicatore è su rosso, rischi di rompere il gancio. Assicurati sempre che sia su verde prima di chiuderla.</strong>",
-          "Puoi utilizzare la lavatrice se necessario, ma prima di accenderla devi aprire il rubinetto dell’acqua, che si trova sopra il rubinetto del lavandino della cucina, sulle piastrelle. Dopo il lavaggio ricordati di chiuderlo. Evita inoltre di accendere altri elettrodomestici contemporaneamente per prevenire interruzioni di corrente.",
           "È assolutamente vietato fumare all’interno dell’appartamento.",
           "In cucina è presente un rilevatore di monossido di carbonio che non deve essere assolutamente scollegato dalla presa.",
           "Un’impresa di pulizie sanificherà l’appartamento dopo la tua partenza. Ti chiediamo comunque di lasciare un minimo di ordine, specialmente in cucina, e di lavare le stoviglie utilizzate.",
           "I prodotti per la pulizia sono disponibili direttamente in cucina.",
           "Non stendere asciugamani o biancheria visibile all’esterno, ad esempio sulla ringhiera del terrazzo. Vanno stesi sulle finestre delle camere. Sono disponibili stendibiancheria a muro sotto la finestra."
         ],
+        washerTitle: "🧺 Lavatrice",
+        washerText: "Per usare la lavatrice, come prima cosa apri il rubinetto dell’acqua fissato alla parete sopra il lavandino. Dopo il lavaggio ricordati di richiuderlo. Per evitare interruzioni di corrente, ti consigliamo di non accendere altri elettrodomestici mentre la lavatrice è in funzione.",
 
         wasteTitle: "♻️ Rifiuti",
         wasteText: "A Sanremo è obbligatoria la raccolta differenziata. Utilizza i seguenti sacchi: giallo per la plastica, azzurro per la carta, trasparente sottile per umido/organico, qualsiasi sacco per l’indifferenziata. Il vetro va conferito nell’apposito cassonetto lungo il marciapiede della strada principale, in qualsiasi giorno.",
@@ -563,11 +686,13 @@
         labelCheckout: "🕘 Check-out",
         wifiLabel: "📶 Wi-Fi",
         wifiPasswordLabel: "Password",
-        labelContact: "💬 Contact",
-        contactNote: "Chat only 07:00–22:00",
-        labelParking: "🚗 Parking",
+      labelContact: "💬 Contact",
+      contactNote: "Chat only 07:00–22:00",
+      labelParking: "🚗 Parking",
+      infoTitle: "ℹ️ Main information",
+      parkingNote: "The garage is medium-sized: if you arrive with a large car that does not fit completely inside, you may drive it in as far as possible and leave the door open. When leaving box 45, drive back along the same road in the opposite direction from your arrival route.",
 
-        accessTitle: "🗝️ Access",
+      accessTitle: "🗝️ Access",
         accessText: "Access takes place in two steps. The first keybox is located on the street side, as shown in the arrival instructions. The second keybox is located inside the garage.",
         accessNote: "We recommend opening the “Arrival instructions” document to follow all steps correctly.",
 
@@ -577,13 +702,14 @@
           "In the bathroom you will find a small welcome kit with a few essential items in case you need them.",
           "If you find any closed wardrobe doors, please do not force them open: staff belongings and equipment are stored inside. You may use all available open spaces.",
           "<strong>The windows have a simple locking system: green means the window is unlocked and can be opened or closed; red means it is locked. Attention: if you close the window while the indicator is on red, you may break the hook. Always make sure it is on green before closing it.</strong>",
-          "You may use the washing machine if needed, but before switching it on, open the water tap located above the kitchen sink tap, on the tiled wall. After washing, remember to close it. Please avoid using other appliances at the same time to prevent power cuts.",
           "Smoking is strictly forbidden inside the apartment.",
           "There is a carbon monoxide detector in the kitchen and it must never be unplugged from the socket.",
           "A cleaning company will sanitize the apartment after your departure. We kindly ask you to leave the apartment reasonably tidy, especially the kitchen, and to wash any used dishes.",
           "Cleaning products are available directly in the kitchen.",
           "Please do not hang towels or laundry outside where visible, for example on the terrace railing. They should be hung at the bedroom windows. Wall-mounted drying racks are available below the window."
         ],
+        washerTitle: "🧺 Washing machine",
+        washerText: "To use the washing machine, first open the water tap attached to the wall above the sink. Remember to close it again after the wash. To avoid power cuts, we recommend not using other appliances while the washing machine is running.",
 
         wasteTitle: "♻️ Waste",
         wasteText: "Separate waste collection is mandatory in Sanremo. Please use the following bags: yellow for plastic, blue for paper, thin transparent for organic waste, and any bag for general waste. Glass must be disposed of in the dedicated container along the sidewalk of the main road, on any day.",
@@ -646,11 +772,13 @@
         labelCheckout: "🕘 Check-out",
         wifiLabel: "📶 Wi-Fi",
         wifiPasswordLabel: "Passwort",
-        labelContact: "💬 Kontakt",
-        contactNote: "Nur Chat 07:00–22:00",
-        labelParking: "🚗 Parkplatz",
+      labelContact: "💬 Kontakt",
+      contactNote: "Nur Chat 07:00–22:00",
+      labelParking: "🚗 Parkplatz",
+      infoTitle: "ℹ️ Wichtige Informationen",
+      parkingNote: "Die Garage ist mittelgroß: Wenn Sie mit einem großen Auto anreisen, das nicht vollständig hineinpasst, können Sie so weit wie möglich hineinfahren und das Tor offen lassen. Beim Verlassen von Box 45 fahren Sie die Straße in umgekehrter Richtung zur Anfahrt zurück.",
 
-        accessTitle: "🗝️ Zugang",
+      accessTitle: "🗝️ Zugang",
         accessText: "Der Zugang erfolgt in zwei Schritten. Die erste Schlüsselbox befindet sich straßenseitig, wie in den Anreisehinweisen beschrieben. Die zweite Schlüsselbox befindet sich in der Garage.",
         accessNote: "Wir empfehlen, das Dokument „Anreisehinweise“ zu öffnen, um alle Schritte korrekt zu befolgen.",
 
@@ -660,13 +788,14 @@
           "Im Badezimmer finden Sie ein kleines Willkommensset mit einigen wichtigen Artikeln, falls Sie diese benötigen.",
           "Falls Sie geschlossene Schranktüren finden, bitten wir Sie, diese nicht mit Gewalt zu öffnen: Darin werden persönliche Gegenstände und Arbeitsmaterial des Teams aufbewahrt. Die verfügbaren offenen Bereiche können Sie selbstverständlich nutzen.",
           "<strong>Die Fenster haben ein einfaches Schließsystem: Grün bedeutet, dass das Fenster entriegelt ist und geöffnet oder geschlossen werden kann; Rot bedeutet, dass es verriegelt ist. Achtung: Wenn Sie das Fenster schließen, während die Anzeige auf Rot steht, kann der Haken beschädigt werden. Stellen Sie immer sicher, dass die Anzeige auf Grün steht, bevor Sie das Fenster schließen.</strong>",
-          "Sie können die Waschmaschine bei Bedarf benutzen. Vor dem Einschalten müssen Sie jedoch den Wasserhahn öffnen, der sich über dem Wasserhahn der Küchenspüle an den Fliesen befindet. Nach dem Waschgang denken Sie bitte daran, ihn wieder zu schließen. Vermeiden Sie außerdem, andere Elektrogeräte gleichzeitig einzuschalten, um Stromausfälle zu vermeiden.",
           "Rauchen ist in der Wohnung strengstens verboten.",
           "In der Küche befindet sich ein Kohlenmonoxidmelder, der auf keinen Fall aus der Steckdose gezogen werden darf.",
           "Nach Ihrer Abreise wird die Wohnung von einem Reinigungsunternehmen desinfiziert. Wir bitten Sie dennoch, die Wohnung in einem ordentlichen Zustand zu hinterlassen, besonders die Küche, und benutztes Geschirr zu spülen.",
           "Reinigungsprodukte stehen direkt in der Küche zur Verfügung.",
           "Bitte hängen Sie keine Handtücher oder Wäsche sichtbar nach draußen, zum Beispiel über das Balkongeländer. Sie sollten an den Schlafzimmerfenstern aufgehängt werden. Unter dem Fenster stehen wandmontierte Wäscheständer zur Verfügung."
         ],
+        washerTitle: "🧺 Waschmaschine",
+        washerText: "Um die Waschmaschine zu benutzen, öffnen Sie zuerst den Wasserhahn, der an der Wand über dem Waschbecken angebracht ist. Bitte schließen Sie ihn nach dem Waschgang wieder. Um Stromausfälle zu vermeiden, empfehlen wir, währenddessen keine anderen Elektrogeräte einzuschalten.",
 
         wasteTitle: "♻️ Müll",
         wasteText: "In Sanremo ist Mülltrennung verpflichtend. Bitte verwenden Sie folgende Säcke: Gelb für Plastik, Blau für Papier, dünn transparent für Bioabfall und beliebige Säcke für Restmüll. Glas muss in den dafür vorgesehenen Container entlang des Gehwegs an der Hauptstraße entsorgt werden, an jedem Tag.",
@@ -729,11 +858,13 @@
         labelCheckout: "🕘 Check-out",
         wifiLabel: "📶 Wi-Fi",
         wifiPasswordLabel: "Mot de passe",
-        labelContact: "💬 Contact",
-        contactNote: "Chat uniquement 07:00–22:00",
-        labelParking: "🚗 Parking",
+      labelContact: "💬 Contact",
+      contactNote: "Chat uniquement 07:00–22:00",
+      labelParking: "🚗 Parking",
+      infoTitle: "ℹ️ Informations principales",
+      parkingNote: "Le garage est de taille moyenne : si vous arrivez avec une grande voiture qui ne rentre pas entièrement, vous pouvez l’avancer autant que possible et laisser la porte ouverte. En sortant du box 45, reprenez la route en sens inverse par rapport au trajet d’arrivée.",
 
-        accessTitle: "🗝️ Accès",
+      accessTitle: "🗝️ Accès",
         accessText: "L’accès se fait en deux étapes. La première boîte à clés se trouve côté rue, comme indiqué dans les instructions d’arrivée. La seconde boîte à clés se trouve à l’intérieur du garage.",
         accessNote: "Nous vous conseillons d’ouvrir le document « Instructions d’arrivée » pour suivre correctement toutes les étapes.",
 
@@ -743,13 +874,14 @@
           "Dans la salle de bain, vous trouverez un petit kit de bienvenue avec quelques articles essentiels si nécessaire.",
           "Si vous trouvez des portes d’armoire fermées, merci de ne pas les forcer : des effets personnels et du matériel de l’équipe y sont rangés. Vous pouvez bien sûr utiliser les espaces disponibles.",
           "<strong>Les fenêtres ont un système de fermeture simple : vert = la fenêtre est déverrouillée et peut être ouverte ou fermée ; rouge = la fenêtre est verrouillée. Attention : si vous fermez la fenêtre alors que l’indicateur est sur rouge, vous risquez de casser le crochet. Vérifiez toujours qu’il soit sur vert avant de la fermer.</strong>",
-          "Vous pouvez utiliser le lave-linge si nécessaire, mais avant de le démarrer, ouvrez le robinet d’eau situé au-dessus du robinet de l’évier de la cuisine, sur le carrelage. Après le lavage, pensez à le refermer. Évitez également d’allumer d’autres appareils électroménagers en même temps afin d’éviter les coupures de courant.",
           "Il est strictement interdit de fumer à l’intérieur de l’appartement.",
           "Dans la cuisine, un détecteur de monoxyde de carbone est installé et ne doit en aucun cas être débranché de la prise.",
           "Une entreprise de nettoyage désinfectera l’appartement après votre départ. Nous vous demandons toutefois de laisser un minimum d’ordre, surtout dans la cuisine, et de laver la vaisselle utilisée.",
           "Les produits de nettoyage sont disponibles directement dans la cuisine.",
           "Merci de ne pas faire sécher serviettes ou linge à l’extérieur de manière visible, par exemple sur la rambarde de la terrasse. Ils doivent être étendus aux fenêtres des chambres. Des étendoirs muraux sont disponibles sous la fenêtre."
         ],
+        washerTitle: "🧺 Lave-linge",
+        washerText: "Pour utiliser le lave-linge, ouvrez d’abord le robinet d’eau fixé au mur au-dessus du lavabo. Pensez à le refermer après le lavage. Pour éviter les coupures de courant, nous vous conseillons de ne pas utiliser d’autres appareils électroménagers pendant que le lave-linge fonctionne.",
 
         wasteTitle: "♻️ Déchets",
         wasteText: "Le tri sélectif est obligatoire à Sanremo. Merci d’utiliser les sacs suivants : jaune pour le plastique, bleu pour le papier, transparent fin pour les déchets organiques et n’importe quel sac pour les déchets non recyclables. Le verre doit être jeté dans le conteneur prévu à cet effet le long du trottoir de la route principale, n’importe quel jour.",
@@ -812,11 +944,13 @@
         labelCheckout: "🕘 Check-out",
         wifiLabel: "📶 Wi-Fi",
         wifiPasswordLabel: "Contraseña",
-        labelContact: "💬 Contacto",
-        contactNote: "Solo chat 07:00–22:00",
-        labelParking: "🚗 Aparcamiento",
+      labelContact: "💬 Contacto",
+      contactNote: "Solo chat 07:00–22:00",
+      labelParking: "🚗 Aparcamiento",
+      infoTitle: "ℹ️ Información principal",
+      parkingNote: "El garaje es de tamaño medio: si llegas con un coche grande que no entra por completo, puedes meterlo hasta donde sea posible y dejar la puerta abierta. Al salir del box 45, recorre la carretera en sentido contrario al trayecto de llegada.",
 
-        accessTitle: "🗝️ Acceso",
+      accessTitle: "🗝️ Acceso",
         accessText: "El acceso se realiza en dos pasos. La primera caja de llaves está en la calle, tal como se indica en las instrucciones de llegada. La segunda caja de llaves está dentro del garaje.",
         accessNote: "Te recomendamos abrir el documento “Instrucciones de llegada” para seguir correctamente todos los pasos.",
 
@@ -826,13 +960,14 @@
           "En el baño encontrarás un pequeño kit de bienvenida con algunos artículos esenciales en caso de necesitarlos.",
           "Si encuentras puertas de armario cerradas, te pedimos que no las fuerces: dentro se guardan objetos personales y material del personal. Puedes utilizar los espacios disponibles.",
           "<strong>Las ventanas tienen un sistema de cierre sencillo: verde = la ventana está desbloqueada y puede abrirse o cerrarse; rojo = la ventana está bloqueada. Atención: si cierras la ventana mientras el indicador está en rojo, puedes romper el gancho. Asegúrate siempre de que esté en verde antes de cerrarla.</strong>",
-          "Puedes utilizar la lavadora si lo necesitas, pero antes de encenderla debes abrir el grifo del agua, situado encima del grifo del fregadero de la cocina, en los azulejos. Después del lavado, recuerda cerrarlo. Además, evita encender otros electrodomésticos al mismo tiempo para prevenir cortes de corriente.",
           "Está absolutamente prohibido fumar dentro del apartamento.",
           "En la cocina hay un detector de monóxido de carbono que no debe desconectarse de la toma bajo ningún concepto.",
           "Una empresa de limpieza desinfectará el apartamento después de tu salida. Aun así, te pedimos que dejes un mínimo de orden, especialmente en la cocina, y que laves la vajilla utilizada.",
           "Los productos de limpieza están disponibles directamente en la cocina.",
           "No tiendas toallas ni ropa visible en el exterior, por ejemplo en la barandilla de la terraza. Deben tenderse en las ventanas de las habitaciones. Hay tendederos de pared disponibles debajo de la ventana."
         ],
+        washerTitle: "🧺 Lavadora",
+        washerText: "Para usar la lavadora, primero abre el grifo del agua fijado a la pared encima del lavabo. Recuerda cerrarlo de nuevo después del lavado. Para evitar cortes de corriente, recomendamos no usar otros electrodomésticos mientras la lavadora esté funcionando.",
 
         wasteTitle: "♻️ Residuos",
         wasteText: "En Sanremo es obligatorio separar los residuos. Utiliza las siguientes bolsas: amarilla para plástico, azul para papel, transparente fina para orgánico y cualquier bolsa para residuos no reciclables. El vidrio debe depositarse en el contenedor correspondiente a lo largo de la acera de la carretera principal, cualquier día.",
@@ -1048,9 +1183,10 @@
       setInfoItemVisibility("checkout-item", "label-checkout", "checkout-value", t.labelCheckout, PROPERTY.checkout);
       setInfoItemVisibility("wifi-item", "label-wifi", "wifi-name", t.wifiLabel, PROPERTY.wifiName, "wifi-password", wifiPasswordText);
       setInfoItemVisibility("contact-item", "label-contact", "contact-value", t.labelContact, PROPERTY.whatsappDisplay, "contact-note", t.contactNote);
-      setInfoItemVisibility("parking-item", "label-parking", "parking-short", t.labelParking, PROPERTY.parkingShort);
+      setInfoItemVisibility("parking-item", "label-parking", "parking-short", t.labelParking, PROPERTY.parkingShort, "parking-note", t.parkingNote);
 
       updateInfoCardVisibility();
+      setText("info-title", t.infoTitle);
 
       const hasAccessContent = hasContentValue(t.accessText) || hasContentValue(t.accessNote);
       setTextOrClear("access-title", hasAccessContent ? t.accessTitle : "");
@@ -1062,6 +1198,11 @@
       setTextOrClear("rules-title", hasRulesContent ? t.rulesTitle : "");
       renderList("rules-list", hasRulesContent ? t.rulesList : []);
       setHidden("rules-card", !hasRulesContent);
+
+      const hasWasherContent = hasContentValue(t.washerText);
+      setTextOrClear("washer-title", hasWasherContent ? t.washerTitle : "");
+      setTextOrClear("washer-text", t.washerText);
+      setHidden("washer-card", !hasWasherContent);
 
       const hasWasteContent = hasContentValue(t.wasteText) || hasContentValue(t.wasteNote);
       setTextOrClear("waste-title", hasWasteContent ? t.wasteTitle : "");
@@ -1125,6 +1266,20 @@
       } catch (e) {}
     }
 
+    function setupAccordions() {
+      document.querySelectorAll(".accordion-card").forEach(card => {
+        const toggle = card.querySelector(".accordion-toggle");
+        const panel = card.querySelector(".accordion-panel");
+        if (!toggle || !panel) return;
+
+        toggle.addEventListener("click", () => {
+          const isOpen = toggle.getAttribute("aria-expanded") === "true";
+          toggle.setAttribute("aria-expanded", String(!isOpen));
+          panel.hidden = isOpen;
+        });
+      });
+    }
+
     document.querySelectorAll(".lang-btn").forEach(btn => {
       btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
     });
@@ -1134,6 +1289,7 @@
       savedLang = localStorage.getItem("guestGuideLang") || "it";
     } catch (e) {}
 
+    setupAccordions();
     setLanguage(savedLang);
   </script>
 </body>
