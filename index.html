@@ -158,6 +158,15 @@
       overflow: hidden;
     }
 
+    .highlight-card {
+      border: 2px solid #d6b458;
+      background: #fffaf0;
+    }
+
+    .highlight-card .accordion-icon {
+      border-color: #b8860b;
+    }
+
     .accordion-toggle {
       width: 100%;
       min-height: 72px;
@@ -481,6 +490,17 @@
       </div>
     </section>
 
+    <section class="card accordion-card highlight-card" id="tourist-tax-card">
+      <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="tourist-tax-panel">
+        <span class="accordion-title" id="tourist-tax-title"></span>
+        <span class="accordion-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="accordion-panel" id="tourist-tax-panel" hidden>
+        <p id="tourist-tax-text"></p>
+        <p class="muted" id="tourist-tax-note"></p>
+      </div>
+    </section>
+
     <section class="card accordion-card" id="waste-card">
       <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="waste-panel">
         <span class="accordion-title" id="waste-title"></span>
@@ -624,6 +644,9 @@
         ],
         washerTitle: "🧺 Lavatrice",
         washerText: "Per usare la lavatrice, come prima cosa apri il rubinetto dell’acqua fissato alla parete sopra il lavandino. Dopo il lavaggio ricordati di richiuderlo. Per evitare interruzioni di corrente, ti consigliamo di non accendere altri elettrodomestici mentre la lavatrice è in funzione.",
+        touristTaxTitle: "🏛️ Tassa di soggiorno",
+        touristTaxText: "Durante il soggiorno riceverai le informazioni per pagare la tassa di soggiorno obbligatoria del Comune di Sanremo. L’host invierà un messaggio con un link elettronico per completare il pagamento.",
+        touristTaxNote: "Importo: 2€ a notte per persona. Bambini fino a 12 anni esclusi. Applicata per un massimo di 15 notti.",
 
         wasteTitle: "♻️ Rifiuti",
         wasteText: "A Sanremo è obbligatoria la raccolta differenziata. Utilizza i seguenti sacchi: giallo per la plastica, azzurro per la carta, trasparente sottile per umido/organico, qualsiasi sacco per l’indifferenziata. Il vetro va conferito nell’apposito cassonetto lungo il marciapiede della strada principale, in qualsiasi giorno.",
@@ -710,6 +733,9 @@
         ],
         washerTitle: "🧺 Washing machine",
         washerText: "To use the washing machine, first open the water tap attached to the wall above the sink. Remember to close it again after the wash. To avoid power cuts, we recommend not using other appliances while the washing machine is running.",
+        touristTaxTitle: "🏛️ Tourist tax",
+        touristTaxText: "During your stay, you will receive the information needed to pay the mandatory tourist tax for the Municipality of Sanremo. The host will send a message with an electronic payment link.",
+        touristTaxNote: "Amount: €2 per night per person. Children up to 12 years old are excluded. Applied for a maximum of 15 nights.",
 
         wasteTitle: "♻️ Waste",
         wasteText: "Separate waste collection is mandatory in Sanremo. Please use the following bags: yellow for plastic, blue for paper, thin transparent for organic waste, and any bag for general waste. Glass must be disposed of in the dedicated container along the sidewalk of the main road, on any day.",
@@ -796,6 +822,9 @@
         ],
         washerTitle: "🧺 Waschmaschine",
         washerText: "Um die Waschmaschine zu benutzen, öffnen Sie zuerst den Wasserhahn, der an der Wand über dem Waschbecken angebracht ist. Bitte schließen Sie ihn nach dem Waschgang wieder. Um Stromausfälle zu vermeiden, empfehlen wir, währenddessen keine anderen Elektrogeräte einzuschalten.",
+        touristTaxTitle: "🏛️ Kurtaxe",
+        touristTaxText: "Während Ihres Aufenthalts erhalten Sie die Informationen zur Zahlung der obligatorischen Kurtaxe der Gemeinde Sanremo. Der Gastgeber sendet Ihnen eine Nachricht mit einem elektronischen Zahlungslink.",
+        touristTaxNote: "Betrag: 2€ pro Nacht und Person. Kinder bis 12 Jahre sind ausgenommen. Gilt für maximal 15 Nächte.",
 
         wasteTitle: "♻️ Müll",
         wasteText: "In Sanremo ist Mülltrennung verpflichtend. Bitte verwenden Sie folgende Säcke: Gelb für Plastik, Blau für Papier, dünn transparent für Bioabfall und beliebige Säcke für Restmüll. Glas muss in den dafür vorgesehenen Container entlang des Gehwegs an der Hauptstraße entsorgt werden, an jedem Tag.",
@@ -882,6 +911,9 @@
         ],
         washerTitle: "🧺 Lave-linge",
         washerText: "Pour utiliser le lave-linge, ouvrez d’abord le robinet d’eau fixé au mur au-dessus du lavabo. Pensez à le refermer après le lavage. Pour éviter les coupures de courant, nous vous conseillons de ne pas utiliser d’autres appareils électroménagers pendant que le lave-linge fonctionne.",
+        touristTaxTitle: "🏛️ Taxe de séjour",
+        touristTaxText: "Pendant votre séjour, vous recevrez les informations nécessaires pour payer la taxe de séjour obligatoire de la commune de Sanremo. L’hôte vous enverra un message avec un lien de paiement électronique.",
+        touristTaxNote: "Montant : 2€ par nuit et par personne. Les enfants jusqu’à 12 ans sont exclus. Applicable pour un maximum de 15 nuits.",
 
         wasteTitle: "♻️ Déchets",
         wasteText: "Le tri sélectif est obligatoire à Sanremo. Merci d’utiliser les sacs suivants : jaune pour le plastique, bleu pour le papier, transparent fin pour les déchets organiques et n’importe quel sac pour les déchets non recyclables. Le verre doit être jeté dans le conteneur prévu à cet effet le long du trottoir de la route principale, n’importe quel jour.",
@@ -968,6 +1000,9 @@
         ],
         washerTitle: "🧺 Lavadora",
         washerText: "Para usar la lavadora, primero abre el grifo del agua fijado a la pared encima del lavabo. Recuerda cerrarlo de nuevo después del lavado. Para evitar cortes de corriente, recomendamos no usar otros electrodomésticos mientras la lavadora esté funcionando.",
+        touristTaxTitle: "🏛️ Tasa turística",
+        touristTaxText: "Durante la estancia recibirás la información necesaria para pagar la tasa turística obligatoria del Ayuntamiento de Sanremo. El anfitrión enviará un mensaje con un enlace electrónico de pago.",
+        touristTaxNote: "Importe: 2€ por noche por persona. Niños hasta 12 años excluidos. Aplicable por un máximo de 15 noches.",
 
         wasteTitle: "♻️ Residuos",
         wasteText: "En Sanremo es obligatorio separar los residuos. Utiliza las siguientes bolsas: amarilla para plástico, azul para papel, transparente fina para orgánico y cualquier bolsa para residuos no reciclables. El vidrio debe depositarse en el contenedor correspondiente a lo largo de la acera de la carretera principal, cualquier día.",
@@ -1203,6 +1238,12 @@
       setTextOrClear("washer-title", hasWasherContent ? t.washerTitle : "");
       setTextOrClear("washer-text", t.washerText);
       setHidden("washer-card", !hasWasherContent);
+
+      const hasTouristTaxContent = hasContentValue(t.touristTaxText) || hasContentValue(t.touristTaxNote);
+      setTextOrClear("tourist-tax-title", hasTouristTaxContent ? t.touristTaxTitle : "");
+      setTextOrClear("tourist-tax-text", t.touristTaxText);
+      setTextOrHide("tourist-tax-note", t.touristTaxNote);
+      setHidden("tourist-tax-card", !hasTouristTaxContent);
 
       const hasWasteContent = hasContentValue(t.wasteText) || hasContentValue(t.wasteNote);
       setTextOrClear("waste-title", hasWasteContent ? t.wasteTitle : "");
